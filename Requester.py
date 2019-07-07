@@ -34,7 +34,13 @@ class Doenets:
         :param index: index number (string | int)
         :return: result
         """
-        r = requests.get(Doenets.path.replace("@@@@", str(index)))
+        r = ""
+        res = {"res": {}}
+        try:
+            r = requests.get(Doenets.path.replace("@@@@", str(index)))
+        except:
+            res['Name'] = "net"
+            return res
 
         txt = (r.text.split("\n"))
         ex_name = False
@@ -43,7 +49,7 @@ class Doenets:
         ex_Z = False
         ex_stream = False
         sub = False
-        res = {"res": {}}
+        
         subject = ""
         for line in txt:
            
@@ -98,7 +104,7 @@ class Doenets:
                                         subject = p
                                         sub = True
             except:
-                print("Network Error:Try Again")
+                pass
         
         return res
 

@@ -62,8 +62,13 @@ class MainApp:
         """
         Invalid Index catch by name
         """
+        
         if not self.res.get('Name'):
             list.insertItem(0, "Invalid Index")
+            return None
+        elif self.res['Name'] == 'net':
+            list.insertItem(0, "Network Error")
+            return None
 
         for val in self.res:
             if val != 'res':
