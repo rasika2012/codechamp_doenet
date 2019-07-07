@@ -1,8 +1,16 @@
-"""
-This Program is written By Rasika Maduranga
-for codechamp 2019
-all right received 2019-07-06
-"""
+##################################################
+## Simple Aplication to access Doenets
+##################################################
+## License under GPL3 Version
+##################################################
+## Author: Rasika Maduranga
+## Copyright: Copyright 2019, GCE AL Result App
+## Credits: [jpura fot]
+## License: GPL3
+## Version: 0.0.2
+## Email: rasikat77@gmail.com
+## Status: Educational purpose only
+##################################################
 
 import time
 import Requester
@@ -108,8 +116,6 @@ class MainApp:
         self.gui.setupUi(self.mainWin)
         self.gui.pushButton.clicked.connect(self.thread_func)
         self.gui.lineEdit.textEdited.connect(self.thread_func)
-       
-        
         self.mainWin.show()
         self.app.exec_()
 

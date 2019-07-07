@@ -1,11 +1,17 @@
-"""
-This Program is written By Rasika Maduranga
-for codechamp 2019
-all right received 2019-07-06
-"""
-
+##################################################
+## Simple Aplication to access Doenets
+##################################################
+## License under GPL3 Version
+##################################################
+## Author: Rasika Maduranga
+## Copyright: Copyright 2019, GCE AL Result App
+## Credits: [jpura fot]
+## License: GPL3
+## Version: 0.0.2
+## Email: rasikat77@gmail.com
+## Status: Educational purpose only
+##################################################
 import requests
-
 
 class Doenets:
     """
@@ -79,7 +85,7 @@ class Doenets:
                     res['Subject Stream'] = line.replace("\t", "").replace("  ", "")
                     ex_stream = False
 
-
+                # Extract Subject info from respond
                 elif "<br /><div id=\"j_idt16:j_idt26\" class=\"ui-datatable ui-widget\"><div class=\"ui-datatable-tablewrapper\"><table role=\"grid\">" in line:
                     for wrd in line.split("<td role=\"gridcell\">"):
                         for p in (wrd.split("</td>")):
@@ -92,7 +98,7 @@ class Doenets:
                                         subject = p
                                         sub = True
             except:
-                pass
+                print("Network Error:Try Again")
         
         return res
 
