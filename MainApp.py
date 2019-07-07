@@ -4,8 +4,6 @@ for codechamp 2019
 all right received 2019-07-06
 """
 
-
-
 import time
 import Requester
 from PyQt5 import QtWidgets
