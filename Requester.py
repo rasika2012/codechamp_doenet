@@ -40,47 +40,59 @@ class Doenets:
         res = {"res": {}}
         subject = ""
         for line in txt:
-            # print (line)
-            if "Name :</td><td role=\"gridcell\" style=\"text-align:left;border-left:none\">" in line:
-                ex_name = True
-            elif ex_name:
-                res['Name'] = line.replace("\t", "").replace(" ", "")
-                ex_name = False
-            elif "District Rank :</td><td role=\"gridcell\"" in line:
-                ex_DR = True
-            elif ex_DR:
-                res['District Rank'] = line.replace("\t", "").replace(" ", "")
-                ex_DR = False
+           
+            try:
+                    
+                # Name of the student
+                if "Name :</td><td role=\"gridcell\" style=\"text-align:left;border-left:none\">" in line:
+                    ex_name = True
+                elif ex_name:
+                    res['Name'] = line.replace("\t", "").replace("  ", "")
+                    ex_name = False
+                    res['Index'] = str(index)
 
-            elif "Island Rank :</td><td role=\"gridcell\" style=\"" in line:
-                ex_IR = True
-            elif ex_IR:
-                res['Island Rank'] = line.replace("\t", "").replace(" ", "")
-                ex_IR = False
+                # DR of the student
+                elif "District Rank :</td><td role=\"gridcell\"" in line:
+                    ex_DR = True
+                elif ex_DR:
+                    res['District Rank'] = line.replace("\t", "").replace("  ", "")
+                    ex_DR = False
 
-            elif "Z-Score :</td><td role=\"gridcell\" style" in line:
-                ex_Z = True
-            elif ex_Z:
-                res['Z-Score'] = line.replace("\t", "").replace(" ", "")
-                ex_Z = False
+                # IR of the student
+                elif "Island Rank :</td><td role=\"gridcell\" style=\"" in line:
+                    ex_IR = True
+                elif ex_IR:
+                    res['Island Rank'] = line.replace("\t", "").replace("  ", "")
+                    ex_IR = False
 
-            elif " Subject Stream :</td><td role=\"gridcell\"" in line:
-                ex_stream = True
+                # Z Score of the student
+                elif "Z-Score :</td><td role=\"gridcell\" style" in line:
+                    ex_Z = True
+                elif ex_Z:
+                    res['Z-Score'] = line.replace("\t", "").replace("  ", "")
+                    ex_Z = False
 
-            elif ex_stream:
-                res['Subject Stream'] = line.replace("\t", "").replace(" ", "")
-                ex_stream = False
+                # Subject Streame of the student
+                elif " Subject Stream :</td><td role=\"gridcell\"" in line:
+                    ex_stream = True
+                elif ex_stream:
+                    res['Subject Stream'] = line.replace("\t", "").replace("  ", "")
+                    ex_stream = False
 
-            elif "<br /><div id=\"j_idt16:j_idt26\" class=\"ui-datatable ui-widget\"><div class=\"ui-datatable-tablewrapper\"><table role=\"grid\">" in line:
-                for wrd in line.split("<td role=\"gridcell\">"):
-                    for p in (wrd.split("</td>")):
-                        if "<" not in p:
-                            if p != '':
-                                if sub == True:
-                                    res["res"][subject] = p
-                                    sub = False
-                                else:
-                                    subject = p
-                                    sub = True
+
+                elif "<br /><div id=\"j_idt16:j_idt26\" class=\"ui-datatable ui-widget\"><div class=\"ui-datatable-tablewrapper\"><table role=\"grid\">" in line:
+                    for wrd in line.split("<td role=\"gridcell\">"):
+                        for p in (wrd.split("</td>")):
+                            if "<" not in p:
+                                if p != '':
+                                    if sub == True:
+                                        res["res"][subject] = p
+                                        sub = False
+                                    else:
+                                        subject = p
+                                        sub = True
+            except:
+                pass
+        
         return res
 

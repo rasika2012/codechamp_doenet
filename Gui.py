@@ -1,56 +1,92 @@
-"""
-This Program is written By Rasika Maduranga
-for codechamp 2019
-all right received 2019-07-06
-"""
+# -*- coding: utf-8 -*-
 
+# Form implementation generated from reading ui file 'file.ui'
+#
+# Created by: PyQt5 UI code generator 5.10.1
+#
+# WARNING! All changes made in this file will be lost!
 
-
-"""
-QT Generated Window form
-
-!! Please DO NOT Change Manually !!
-
-use Main App method to update properties
-
-"""
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(518, 500)
-
+        MainWindow.resize(493, 624)
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        MainWindow.setFont(font)
+        MainWindow.setAutoFillBackground(False)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setWindowFlag(QtCore.Qt.WindowCloseButtonHint )
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(20, 0, 471, 451))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 0, 466, 561))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.label = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-        self.lineEdit = QtWidgets.QLineEdit(self.gridLayoutWidget)
-        self.lineEdit.setObjectName("lineEdit")
-        self.gridLayout.addWidget(self.lineEdit, 1, 0, 1, 1)
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.gridLayout.addLayout(self.verticalLayout, 2, 0, 1, 1)
-        self.pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.gridLayout.addWidget(self.pushButton, 1, 1, 1, 1)
-        self.listWidget = QtWidgets.QListWidget(self.gridLayoutWidget)
-        self.listWidget.setObjectName("listWidget")
-        self.gridLayout.addWidget(self.listWidget, 3, 0, 1, 2)
         self.listWidget_2 = QtWidgets.QListWidget(self.gridLayoutWidget)
         self.listWidget_2.setObjectName("listWidget_2")
-        self.gridLayout.addWidget(self.listWidget_2, 4, 0, 1, 2)
+        self.gridLayout.addWidget(self.listWidget_2, 12, 0, 1, 3)
+        self.lineEdit = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        font.setItalic(True)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setCursorPosition(0)
+        self.lineEdit.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lineEdit.setClearButtonEnabled(True)
+        self.lineEdit.setObjectName("lineEdit")
+        self.gridLayout.addWidget(self.lineEdit, 4, 1, 1, 1)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.gridLayout.addLayout(self.verticalLayout, 6, 1, 1, 1)
+        self.pushButton = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.pushButton.setObjectName("pushButton")
+        self.gridLayout.addWidget(self.pushButton, 4, 2, 1, 1)
+        self.line = QtWidgets.QFrame(self.gridLayoutWidget)
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.gridLayout.addWidget(self.line, 9, 1, 1, 1)
+        self.label = QtWidgets.QLabel(self.gridLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 4, 0, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.gridLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_3.setFont(font)
+        self.label_3.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout.addWidget(self.label_3, 1, 0, 1, 2)
+        self.listWidget = QtWidgets.QListWidget(self.gridLayoutWidget)
+        self.listWidget.setObjectName("listWidget")
+        self.gridLayout.addWidget(self.listWidget, 11, 0, 1, 3)
+        self.line_2 = QtWidgets.QFrame(self.gridLayoutWidget)
+        self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_2.setObjectName("line_2")
+        self.gridLayout.addWidget(self.line_2, 2, 0, 1, 3)
+        self.progressBar = QtWidgets.QProgressBar(self.gridLayoutWidget)
+        self.progressBar.setProperty("value", 99)
+        self.progressBar.setAlignment(QtCore.Qt.AlignCenter)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setOrientation(QtCore.Qt.Horizontal)
+        self.progressBar.setTextDirection(QtWidgets.QProgressBar.BottomToTop)
+        self.progressBar.setObjectName("progressBar")
+        self.gridLayout.addWidget(self.progressBar, 10, 0, 1, 3)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 518, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 493, 25))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -58,14 +94,15 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.label.setBuddy(self.pushButton)
 
-
         self.retranslateUi(MainWindow)
         self.pushButton.clicked.connect(self.lineEdit.copy)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("GCE A/L 2018", "GCE A/L 2018"))
-        self.label.setText(_translate("GCE A/L 2018", "Index Number"))
-        self.pushButton.setText(_translate("GCE A/L 2018", "Search"))
+        MainWindow.setWindowTitle(_translate("MainWindow", " ~ GCE AL 2018 ~"))
+        self.lineEdit.setPlaceholderText(_translate("MainWindow", "2271052"))
+        self.pushButton.setText(_translate("MainWindow", "Search"))
+        self.label.setText(_translate("MainWindow", "Inde&x Number"))
+        self.label_3.setText(_translate("MainWindow", " Advanced Level Result - 2018"))
 

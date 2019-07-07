@@ -10,7 +10,7 @@ import time
 import Requester
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
-
+import threading
 import sys
 from Gui import Ui_MainWindow
 
@@ -35,6 +35,7 @@ class MainApp:
         self.text = ""
         self.res = {}
         self.tm = time.time()
+        self.state = 0
 
     def reset(self):
         """
@@ -67,15 +68,38 @@ class MainApp:
             i += 1
             table.insertItem(i, subject + " (" + self.res['res'][subject] + ")")
 
-    def search(self):
+    def update_status(self,i):
+        """
+        Update Status Bar for a value
+        """
+        gui = self.gui
+        gui.progressBar.setProperty("value", i)
+
+    def search(self,state = 0):
         """
         Search Doenets and update GUI
 
         :return: None
         """
+        self.update_status(25)
+        res = self.back_end.read_result(self.gui.lineEdit.text())
+        self.update_status(75)
+        if self.state == state:
+            self.res = res
+            self.reset()
+        self.update_status(100)
 
-        self.res = self.back_end.read_result(self.gui.lineEdit.text())
-        self.reset()
+
+    def thread_func(self):
+        """
+        Here goes threading part
+
+        Curently not improved
+        """
+        if len(self.gui.lineEdit.text())==7:
+            self.state+=1
+            self.search(self.state)
+            
 
     def run(self):
 
@@ -84,8 +108,10 @@ class MainApp:
 
         """
         self.gui.setupUi(self.mainWin)
-        self.gui.pushButton.clicked.connect(self.search)
-
+        self.gui.pushButton.clicked.connect(self.thread_func)
+        self.gui.lineEdit.textEdited.connect(self.thread_func)
+       
+        
         self.mainWin.show()
         self.app.exec_()
 
