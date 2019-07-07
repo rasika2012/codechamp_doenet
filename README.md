@@ -16,3 +16,10 @@ GCE A/L 2018 App is aplication made for codechamp 2018 organized by
 
     pip install request
 
+### Run
+
+
+  Python MainApp.py
+  
+  
+  
