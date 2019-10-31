@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# Test 1
 # Form implementation generated from reading ui file 'file.ui'
 #
 # Created by: PyQt5 UI code generator 5.10.1
